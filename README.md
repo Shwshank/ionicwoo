@@ -18,7 +18,7 @@ $ ionic start mySideMenu sidemenu
 Then, to run it, cd into `mySideMenu` and run:
 
 ```bash
-# $ ionic cordova platform add ios
+$ ionic cordova platform add ios
 # $ ionic cordova run ios
 ```
 
