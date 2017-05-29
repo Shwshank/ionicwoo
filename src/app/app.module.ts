@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule,  } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
@@ -8,9 +8,11 @@ import { MenuPage } from '../pages/menu/menu';
 import { PopoverPage } from '../pages/home/PopoverPage';
 import { ProductDetailsPage } from "../pages/product-details/product-details";
 import { ProductByCategoryPage } from '../pages/product-by-category/product-by-category';
+import { CartPage } from '../pages/cart/cart';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MenuPage,
     PopoverPage,
     ProductDetailsPage,
-    ProductByCategoryPage
+    ProductByCategoryPage,
+    CartPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +36,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MenuPage,
     PopoverPage,
     ProductDetailsPage,
-    ProductByCategoryPage
+    ProductByCategoryPage,
+    CartPage
+
   ],
   providers: [
     StatusBar,

@@ -3,7 +3,7 @@ import { ViewController  } from 'ionic-angular';
 
 @Component({
   template: `
-    <ion-list>
+    <ion-list no-lines>
 
         <ion-item text-wrap>
           <ion-thumbnail item-left>

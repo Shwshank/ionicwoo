@@ -6,8 +6,17 @@
 
 </ion-header>
 
-
 <ion-content>
+
+  <ion-fab right top edge (click)="openCart()">
+    <button ion-fab color="danger"><ion-icon name="cart"></ion-icon></button>
+  </ion-fab>
+
+  <div *ngIf="productInCart">
+    <ion-fab  right bottom edge (click)="showAddedMsg(product)">
+      <button ion-fab color="secondary"><ion-icon name="heart"></ion-icon></button>
+    </ion-fab>
+  </div>
 
 <ion-card>
   <ion-slides autoplay="3000" pager  loop="true">
@@ -26,8 +35,8 @@
 
     <p [innerHTML]="product.description"></p>
 
-    <button ion-button icon-left block outline color="danger">
-      <ion-icon name="basket"></ion-icon> Add to Cart
+    <button ion-button icon-left block outline color="danger" (click)=addToCart(product) >
+      <ion-icon name="basket"></ion-icon> {{AddToCart}}
     </button>
 
   </ion-card-content>
