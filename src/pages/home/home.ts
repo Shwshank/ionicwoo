@@ -4,6 +4,8 @@ import { NavController, ToastController, PopoverController  } from 'ionic-angula
 import * as WC from 'woocommerce-api';
 
 import { PopoverPage } from './PopoverPage';
+import { ProductDetailsPage } from '../product-details/product-details';
+import { ProductByCategoryPage } from '../product-by-category/product-by-category';
 
 @Component({
   selector: 'page-home',
@@ -94,5 +96,14 @@ export class HomePage {
         ev: myEvent
       });
     }
+
+    openCategoryPage(category){
+        this.navCtrl.push(ProductByCategoryPage, {"category": category} );
+    }
+
+    productDetails(product){
+        this.navCtrl.push(ProductDetailsPage, {"product": product} );
+    }
+
 
 }
