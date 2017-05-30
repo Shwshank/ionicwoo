@@ -29,6 +29,12 @@
       <img src="./assets/images/banner.jpg">
   </ion-grid>
 
+  <button ion-button (click)="toggleAnimation()"> Toggle it! </button>
+
+  <p [@triggerApp]="triggerAnimation">
+    yoo!!!!
+  </p>
+
   <ion-grid>
     <ion-row>
       <ion-col *ngFor = "let category of categories" text-wrap col-6 (click)="openCategoryPage(category)">

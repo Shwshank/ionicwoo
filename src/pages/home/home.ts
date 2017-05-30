@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule  } from '@angular/core';
 import { NavController, ToastController, PopoverController  } from 'ionic-angular';
 
 import * as WC from 'woocommerce-api';
@@ -6,10 +6,20 @@ import * as WC from 'woocommerce-api';
 import { PopoverPage } from './PopoverPage';
 import { ProductDetailsPage } from '../product-details/product-details';
 import { ProductByCategoryPage } from '../product-by-category/product-by-category';
+import {  trigger,  state,  style,  animate,  transition} from '@angular/animations';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  animations: [trigger('triggerApp', [
+      state('visible', style ({
+        opacity : 1
+      })),
+      state('invisible', style({
+        opacity : 0
+      }))
+  ]
+ )]
 })
 export class HomePage {
 
@@ -18,6 +28,7 @@ export class HomePage {
   products: any[];
   page: number;
   splash = true;
+  triggerAnimation = 'visible';
 
   constructor(public navCtrl: NavController, private  toastCtrl: ToastController, public popoverCtrl: PopoverController) {
     this.categories = [];
@@ -105,5 +116,7 @@ export class HomePage {
         this.navCtrl.push(ProductDetailsPage, {"product": product} );
     }
 
-
+    toggleAnimation(){
+      this.triggerAnimation = (this.triggerAnimation == 'visible' ) ? 'invisible' : 'visible';
+    }
 }

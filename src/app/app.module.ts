@@ -10,6 +10,7 @@ import { ProductDetailsPage } from "../pages/product-details/product-details";
 import { ProductByCategoryPage } from '../pages/product-by-category/product-by-category';
 import { CartPage } from '../pages/cart/cart';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
@@ -27,7 +28,8 @@ import { IonicStorageModule } from '@ionic/storage';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
