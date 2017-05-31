@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController, ToastController, ViewController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, ModalController, ToastController, ViewController, Navbar  } from 'ionic-angular';
 import { CartPage } from '../cart/cart';
 import { Storage } from '@ionic/storage';
+
+import  { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-product-details',
@@ -11,6 +13,7 @@ export class ProductDetailsPage {
     product : any[];
     productInCart: boolean = false;
     AddToCart: any = " Add to Cart ";
+    @ViewChild('navbar') navBar: Navbar;
 
   constructor(public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController, public storage2: Storage,  public storage: Storage, private toastCtrl: ToastController ) {
     this.product = this.navParams.get("product");
@@ -19,8 +22,9 @@ export class ProductDetailsPage {
   }
 
   ionViewDidEnter(){
-    console.log("called");
-    this.checkProductInCart(this.product);
+    // this.navBar.backButtonClick = () => {
+    //   this.navCtrl.push(HomePage);
+    // };
   }
 
   addToCart(product) {

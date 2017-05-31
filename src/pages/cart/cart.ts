@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, ViewController, Navbar  } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ProductDetailsPage } from '../product-details/product-details';
 
@@ -13,6 +13,7 @@ export class CartPage {
   total: any;
   showEmptyCartMessage: boolean = false;
   product1 :any[];
+  @ViewChild('navbar') navBar: Navbar;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public viewCtrl: ViewController) {
     this.product1 = this.navParams.get("product");
@@ -41,6 +42,14 @@ export class CartPage {
 
     })
 
+
+  }
+
+  ionViewDidEnter() {
+    this.navBar.backButtonClick = () => {
+      this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
+    };
+
   }
 
   removeFromCart(item, i){
@@ -64,8 +73,6 @@ export class CartPage {
   }
 
   closeModal(){
-    //this.viewCtrl.dismiss();
-    console.log("Aya ye : "+this.product1);
     this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
   }
 
@@ -75,5 +82,9 @@ export class CartPage {
 
   backToProduct(){
     this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
+  }
+
+  ionViewWillLeave() {
+    //this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
   }
 }
