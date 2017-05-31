@@ -55,7 +55,7 @@ export class HomePage {
     }
 
     ionViewDidEnter() {
-      setTimeout(() => this.animateElem(), 5500);
+      // setTimeout(() => this.animateElem(), 5500);
     }
 
     getCategories(){
@@ -138,8 +138,8 @@ export class HomePage {
       this.triggerAnimation = (this.triggerAnimation == 'visible' ) ? 'invisible' : 'visible';
     }
 
-    animateElem() {
-      this.animator.setType('flipInX').show(this.myElem.nativeElement);
-    }
+    // animateElem() {
+    //   this.animator.setType('flipInX').show(this.myElem.nativeElement);
+    // }
 
 }

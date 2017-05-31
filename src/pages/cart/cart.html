@@ -1,8 +1,17 @@
 <ion-header>
 
-  <ion-navbar>
+  <!-- <ion-navbar  class="bar-positive">
     <ion-title>Your Cart</ion-title>
-  </ion-navbar>
+  </ion-navbar> -->
+  <ion-navbar hideBackButton>
+    <ion-buttons left>
+        <button ion-button (click)="backToProduct()">
+            <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-title>Cart Page</ion-title>
+ </ion-navbar>
+
 
 </ion-header>
 

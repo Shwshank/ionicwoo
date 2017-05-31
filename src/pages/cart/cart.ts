@@ -12,9 +12,10 @@ export class CartPage {
   cartItems: any[] = [];
   total: any;
   showEmptyCartMessage: boolean = false;
+  product1 :any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public viewCtrl: ViewController) {
-
+    this.product1 = this.navParams.get("product");
     this.total = 0.0;
 
     this.storage.ready().then(()=>{
@@ -63,10 +64,16 @@ export class CartPage {
   }
 
   closeModal(){
-    this.viewCtrl.dismiss();
+    //this.viewCtrl.dismiss();
+    console.log("Aya ye : "+this.product1);
+    this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
   }
 
   productDetails(product){
       this.navCtrl.push(ProductDetailsPage, {"product": product} );
+  }
+
+  backToProduct(){
+    this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
   }
 }

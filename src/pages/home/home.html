@@ -33,7 +33,7 @@
     <button ion-button (click)="animation.start({type: 'rubberBand', duration: '1000'})">Click me!</button>
   </div> -->
 
-  <!-- <button ion-button (click)="toggleAnimation()"> Toggle it! </button> -->
+  <!-- <button ion-button (click)="toggleAnimation()" #myElement> Toggle it! </button> -->
 
 
   <!-- <p [@triggerApp]="triggerAnimation">
@@ -43,7 +43,7 @@
   <ion-grid >
     <ion-row>
       <ion-col   *ngFor = "let category of categories"  text-wrap col-6 (click)="openCategoryPage(category)" style="height: fixed">
-        <img #myElement [src]="category.image" [@triggerApp]="triggerAnimation" />
+        <img  [src]="category.image" [@triggerApp]="triggerAnimation" />
       </ion-col>
 
     </ion-row>
