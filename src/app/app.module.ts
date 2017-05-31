@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
+import { AnimationService, AnimatesDirective } from 'css-animator';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { IonicStorageModule } from '@ionic/storage';
     PopoverPage,
     ProductDetailsPage,
     ProductByCategoryPage,
-    CartPage
+    CartPage,
+    AnimatesDirective
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AnimationService
   ]
 })
 export class AppModule {}

@@ -1,4 +1,4 @@
-import { Component, NgModule  } from '@angular/core';
+import { Component, NgModule, ViewChild   } from '@angular/core';
 import { NavController, ToastController, PopoverController  } from 'ionic-angular';
 
 import * as WC from 'woocommerce-api';
@@ -7,21 +7,24 @@ import { PopoverPage } from './PopoverPage';
 import { ProductDetailsPage } from '../product-details/product-details';
 import { ProductByCategoryPage } from '../product-by-category/product-by-category';
 import {  trigger,  state,  style,  animate,  transition} from '@angular/animations';
+import { AnimationService, AnimationBuilder } from 'css-animator';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  animations: [trigger('triggerApp', [
-      state('visible', style ({
-        opacity : 1
-      })),
-      state('invisible', style({
-        opacity : 0
-      }))
-  ]
- )]
+  animations: [
+  trigger('triggerApp', [
+    state('in', style({transform: 'translateX(10%)'})),
+
+    transition('void => *', [ style({transform: 'translateX(-100%)'}), animate(100) ]),
+    transition('* => in', [ style({transform: 'translateX(-10%)'}), animate(400) ]),
+
+  ])
+]
 })
 export class HomePage {
+
+  // more abt. animations @ https://devdactic.com/animations-ionic-app/
 
   WooCommerce: any;
   categories: any[];
@@ -29,8 +32,11 @@ export class HomePage {
   page: number;
   splash = true;
   triggerAnimation = 'visible';
+  @ViewChild('myElement') myElem;
+  private animator: AnimationBuilder;
 
-  constructor(public navCtrl: NavController, private  toastCtrl: ToastController, public popoverCtrl: PopoverController) {
+  constructor(public navCtrl: NavController, private  toastCtrl: ToastController, public popoverCtrl: PopoverController, public animationService: AnimationService) {
+    this.animator = animationService.builder();
     this.categories = [];
 
      this.WooCommerce = WC({
@@ -45,15 +51,26 @@ export class HomePage {
   }
     ionViewDidLoad() {
       setTimeout(() => this.splash = false, 6500);
+      // setTimeout(function(){this.triggerAnimation = 'visible';}, 3000);
+    }
+
+    ionViewDidEnter() {
+      setTimeout(() => this.animateElem(), 5500);
     }
 
     getCategories(){
+
+
       this.WooCommerce.getAsync("products/categories").then((data) => {
         console.log(JSON.parse(data.body).product_categories);
         let temp: any[] = JSON.parse(data.body).product_categories;
         for( let i = 0; i < temp.length; i ++){
           if(temp[i].parent == 0){
             this.categories.push(temp[i]);
+
+            //animation
+            this.triggerAnimation = 'visible';
+
           }
         }
       }, (err)=> {
@@ -65,6 +82,7 @@ export class HomePage {
       this.WooCommerce.getAsync("products").then( (data) => {
             console.log(JSON.parse(data.body));
             this.products = JSON.parse(data.body).products;
+
           }, (err) => {
             console.log(err)
           })
@@ -119,4 +137,9 @@ export class HomePage {
     toggleAnimation(){
       this.triggerAnimation = (this.triggerAnimation == 'visible' ) ? 'invisible' : 'visible';
     }
+
+    animateElem() {
+      this.animator.setType('flipInX').show(this.myElem.nativeElement);
+    }
+
 }

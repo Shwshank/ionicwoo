@@ -26,28 +26,33 @@
   </ion-card>
 
   <ion-grid>
-      <img src="./assets/images/banner.jpg">
+      <img src="./assets/images/banner.jpg" >
   </ion-grid>
 
-  <button ion-button (click)="toggleAnimation()"> Toggle it! </button>
+  <!-- <div animates #animation="animates" text-center>
+    <button ion-button (click)="animation.start({type: 'rubberBand', duration: '1000'})">Click me!</button>
+  </div> -->
 
-  <p [@triggerApp]="triggerAnimation">
+  <!-- <button ion-button (click)="toggleAnimation()"> Toggle it! </button> -->
+
+
+  <!-- <p [@triggerApp]="triggerAnimation">
     yoo!!!!
-  </p>
+  </p> -->
 
-  <ion-grid>
+  <ion-grid >
     <ion-row>
-      <ion-col *ngFor = "let category of categories" text-wrap col-6 (click)="openCategoryPage(category)">
-        <img [src]="category.image" />
+      <ion-col   *ngFor = "let category of categories"  text-wrap col-6 (click)="openCategoryPage(category)" style="height: fixed">
+        <img #myElement [src]="category.image" [@triggerApp]="triggerAnimation" />
       </ion-col>
 
     </ion-row>
   </ion-grid>
 
-  <ion-list>
-    <ion-item *ngFor="let product of products" text-wrap (click)="productDetails(product)">
+  <ion-list >
+    <ion-item *ngFor="let product of products" text-wrap (click)="productDetails(product)" >
       <ion-thumbnail item-left>
-        <img [src]="product.featured_src" />
+        <img [src]="product.featured_src"  />
       </ion-thumbnail>
 
       <h2> {{ product.title }} </h2>
