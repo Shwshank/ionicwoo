@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, ViewController, Navbar  } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ProductDetailsPage } from '../product-details/product-details';
+import { CheckoutPage } from '../checkout/checkout';
 
 @Component({
   selector: 'page-cart',
@@ -75,19 +76,12 @@ export class CartPage {
 
   }
 
-  closeModal(){
-    this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
-  }
-
   productDetails(product){
-      this.navCtrl.push(ProductDetailsPage, {"product": product} );
+    this.navCtrl.push(ProductDetailsPage, {"product": product} );
   }
 
-  backToProduct(){
-    this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
+  checkoutPage(){
+    this.navCtrl.push(CheckoutPage, {"product": this.product1});
   }
 
-  ionViewWillLeave() {
-    //this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
-  }
 }

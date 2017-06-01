@@ -26,6 +26,7 @@ export class HeaderPage {
     fab.close();
     this.navCtrl.push(SettingPage);
   }
+  
   logout( fab: FabContainer){
     fab.close();
     console.log("Loggout called");

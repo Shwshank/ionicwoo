@@ -4,6 +4,8 @@ import { NavController, ToastController, PopoverController  } from 'ionic-angula
 import * as WC from 'woocommerce-api';
 
 import { PopoverPage } from './PopoverPage';
+import { SearchPipe } from '../pipes/searchpipe';
+
 import { ProductDetailsPage } from '../product-details/product-details';
 import { ProductByCategoryPage } from '../product-by-category/product-by-category';
 import { trigger,  state,  style,  animate,  transition } from '@angular/animations';
@@ -32,10 +34,16 @@ export class HomePage {
   page: number;
   splash = true;
   triggerAnimation = 'visible';
+  items :any[];
+  names:any;
+  itemname : any[];
   @ViewChild('myElement') myElem;
   private animator: AnimationBuilder;
 
   constructor(public navCtrl: NavController, private  toastCtrl: ToastController, public popoverCtrl: PopoverController, public animationService: AnimationService) {
+
+    this.names = ['Prashobh','Abraham','Anil','Sam','Natasha','Marry','Zian','karan'];
+
     this.animator = animationService.builder();
     this.categories = [];
 
@@ -49,6 +57,7 @@ export class HomePage {
     this.getProducts();
     this.loadMoreProducts(null);
   }
+
     ionViewDidLoad() {
       setTimeout(() => this.splash = false, 6500);
       // setTimeout(function(){this.triggerAnimation = 'visible';}, 3000);
@@ -82,6 +91,7 @@ export class HomePage {
       this.WooCommerce.getAsync("products").then( (data) => {
             console.log(JSON.parse(data.body));
             this.products = JSON.parse(data.body).products;
+            this.items = JSON.parse(data.body).products.title;
 
           }, (err) => {
             console.log(err)
@@ -141,5 +151,24 @@ export class HomePage {
     // animateElem() {
     //   this.animator.setType('flipInX').show(this.myElem.nativeElement);
     // }
+
+    initializeItems(){
+      this.itemname = this.items;
+    }
+
+    getItems(ev) {
+      // Reset items back to all of the items
+      this.initializeItems();
+
+      // set val to the value of the ev target
+      var val = ev.target.value;
+
+      // if the value is an empty string don't filter the items
+      if (val && val.trim() != '') {
+        this.itemname = this.itemname.filter((item) => {
+          return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        })
+      }
+    }
 
 }

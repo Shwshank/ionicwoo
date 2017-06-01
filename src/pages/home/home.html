@@ -8,7 +8,15 @@
 </div> -->
 
 <ion-content>
+
 <page-header></page-header>
+
+<!-- <ion-searchbar [(ngModel)]="queryString" id="search" ></ion-searchbar>
+  <ul>
+    <li *ngFor="let n of names | SearchPipe: queryString">
+      {{n}}
+    </li>
+  </ul> -->
 
   <ion-card style="padding-top: 0px; margin: 0px; width: 100%;" >
     <ion-slides autoplay="3000" pager loop="true">
@@ -42,8 +50,10 @@
     </ion-row>
   </ion-grid>
 
+  <ion-searchbar [(ngModel)]="queryString" id="search" placeholder="Search by product name"></ion-searchbar>
+
   <ion-list >
-    <ion-item *ngFor="let product of products" text-wrap (click)="productDetails(product)" >
+    <ion-item *ngFor="let product of products | SearchPipe: queryString" text-wrap (click)="productDetails(product)" >
       <ion-thumbnail item-left>
         <img [src]="product.featured_src"  />
       </ion-thumbnail>

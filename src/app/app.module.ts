@@ -11,12 +11,17 @@ import { ProductByCategoryPage } from '../pages/product-by-category/product-by-c
 import { CartPage } from '../pages/cart/cart';
 import { HeaderPage } from '../pages/header/header';
 import { SettingPage } from '../pages/setting/setting';
+import { CheckoutPage } from '../pages/checkout/checkout';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+import { SearchPipe } from '../pages/pipes/searchpipe';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { AnimationService, AnimatesDirective } from 'css-animator';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -29,13 +34,18 @@ import { AnimationService, AnimatesDirective } from 'css-animator';
     CartPage,
     AnimatesDirective,
     HeaderPage,
-    SettingPage
+    SettingPage,
+    CheckoutPage,
+    LoginPage,
+    SignupPage,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,7 +57,10 @@ import { AnimationService, AnimatesDirective } from 'css-animator';
     ProductByCategoryPage,
     CartPage,
     HeaderPage,
-    SettingPage
+    SettingPage,
+    CheckoutPage,
+    LoginPage,
+    SignupPage
 
   ],
   providers: [

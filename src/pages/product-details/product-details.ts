@@ -27,7 +27,7 @@ export class ProductDetailsPage {
   }
 
   addToCart(product){
-    this.checkProductInCart(this.product);
+
 
     this.storage.get("cart").then((data) => {
 
@@ -48,7 +48,7 @@ export class ProductDetailsPage {
           if (product.id == data[i].product.id) {
             let qty = data[i].qty;
 
-            console.log("Product is already in the cart");
+            console.log("This product is in your cart! ");
 
             data[i].qty = qty + 1;
             data[i].amount = parseFloat(data[i].amount) + parseFloat(data[i].product.price);
@@ -69,10 +69,11 @@ export class ProductDetailsPage {
       this.storage.set("cart", data).then(() => {
         console.log("Cart Updated");
         console.log(data);
+        this.checkProductInCart(this.product);
 
         this.toastCtrl.create({
           message: "Cart Updated",
-          duration: 3000
+          duration: 2000
         }).present();
       })
     })
@@ -117,8 +118,8 @@ export class ProductDetailsPage {
 
   showAddedMsg(){
     this.toastCtrl.create({
-      message: "Product Already Added!",
-      duration: 4000
+      message: "This product is in your cart! ",
+      duration: 2000
     }).present();
   }
 }

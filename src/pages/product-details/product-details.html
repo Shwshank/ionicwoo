@@ -15,7 +15,7 @@
   </ion-fab> -->
 
   <div *ngIf="productInCart">
-    <ion-fab  right bottom edge (click)="showAddedMsg(product)">
+    <ion-fab   right middle (click)="showAddedMsg(product)" style="position: fixed">
       <button ion-fab color="secondary"><ion-icon name="heart"></ion-icon></button>
     </ion-fab>
   </div>
