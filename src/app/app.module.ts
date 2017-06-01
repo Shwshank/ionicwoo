@@ -9,6 +9,8 @@ import { PopoverPage } from '../pages/home/PopoverPage';
 import { ProductDetailsPage } from "../pages/product-details/product-details";
 import { ProductByCategoryPage } from '../pages/product-by-category/product-by-category';
 import { CartPage } from '../pages/cart/cart';
+import { HeaderPage } from '../pages/header/header';
+import { SettingPage } from '../pages/setting/setting';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,7 +27,9 @@ import { AnimationService, AnimatesDirective } from 'css-animator';
     ProductDetailsPage,
     ProductByCategoryPage,
     CartPage,
-    AnimatesDirective
+    AnimatesDirective,
+    HeaderPage,
+    SettingPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { AnimationService, AnimatesDirective } from 'css-animator';
     PopoverPage,
     ProductDetailsPage,
     ProductByCategoryPage,
-    CartPage
+    CartPage,
+    HeaderPage,
+    SettingPage
 
   ],
   providers: [

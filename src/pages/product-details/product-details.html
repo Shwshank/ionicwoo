@@ -6,11 +6,13 @@
 
 </ion-header>
 
+<page-header></page-header>
+
 <ion-content cache-view="false" >
 
-  <ion-fab right top edge (click)="openCart()">
+  <!-- <ion-fab right top edge (click)="openCart()">
     <button ion-fab color="danger"><ion-icon name="cart"></ion-icon></button>
-  </ion-fab>
+  </ion-fab> -->
 
   <div *ngIf="productInCart">
     <ion-fab  right bottom edge (click)="showAddedMsg(product)">

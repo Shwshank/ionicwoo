@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, ModalController, ToastController, ViewController, Navbar  } from 'ionic-angular';
-import { CartPage } from '../cart/cart';
 import { Storage } from '@ionic/storage';
 
-import  { HomePage } from '../home/home';
+import { CartPage } from '../cart/cart';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-product-details',

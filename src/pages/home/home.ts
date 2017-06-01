@@ -6,8 +6,9 @@ import * as WC from 'woocommerce-api';
 import { PopoverPage } from './PopoverPage';
 import { ProductDetailsPage } from '../product-details/product-details';
 import { ProductByCategoryPage } from '../product-by-category/product-by-category';
-import {  trigger,  state,  style,  animate,  transition} from '@angular/animations';
+import { trigger,  state,  style,  animate,  transition } from '@angular/animations';
 import { AnimationService, AnimationBuilder } from 'css-animator';
+import { HeaderPage } from '../header/header';
 
 @Component({
   selector: 'page-home',

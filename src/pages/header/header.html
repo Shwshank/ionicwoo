@@ -1,0 +1,23 @@
+
+<!-- <ion-header>
+  <ion-navbar>
+     Real floating action button, fixed. It will not scroll with the content -->
+
+    <!-- <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-fab top right style="position: fixed" >
+  <button  ion-fab mini color="dark"><ion-icon name="arrow-dropdown-circle"></ion-icon></button>
+  <ion-fab-list>
+
+    <button ion-fab (click)="home()"><ion-icon  ios="ios-home" md="md-home" ></ion-icon></button>
+    <button ion-fab (click)="cart()"><ion-icon  ios="ios-cart" md="md-cart"  ></ion-icon></button>
+    <button ion-fab (click)="setting()"><ion-icon  ios="ios-settings" md="md-settings"  ></ion-icon></button>
+    <button ion-fab (click)="logout()"><ion-icon  ios="ios-log-out" md="md-log-out"  ></ion-icon></button>
+
+  </ion-fab-list>
+</ion-fab>
