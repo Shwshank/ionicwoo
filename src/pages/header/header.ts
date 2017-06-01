@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, FabContainer } from 'ionic-angular';
 
 import {HomePage} from '../home/home';
 import {CartPage} from '../cart/cart';
@@ -14,16 +14,20 @@ export class HeaderPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  home(){
+  home( fab: FabContainer){
+    fab.close();
     this.navCtrl.push(HomePage);
   }
-  cart(){
+  cart( fab: FabContainer){
+    fab.close();
     this.navCtrl.push(CartPage);
   }
-  setting(){
+  setting( fab: FabContainer){
+    fab.close();
     this.navCtrl.push(SettingPage);
   }
-  logout(){
-      console.log("Loggout called");
+  logout( fab: FabContainer){
+    fab.close();
+    console.log("Loggout called");
   }
 }

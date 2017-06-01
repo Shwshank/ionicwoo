@@ -8,7 +8,6 @@ import { ProductDetailsPage } from '../product-details/product-details';
 import { ProductByCategoryPage } from '../product-by-category/product-by-category';
 import { trigger,  state,  style,  animate,  transition } from '@angular/animations';
 import { AnimationService, AnimationBuilder } from 'css-animator';
-import { HeaderPage } from '../header/header';
 
 @Component({
   selector: 'page-home',
@@ -110,10 +109,10 @@ export class HomePage {
         if(JSON.parse(data.body).products.length < 10){
             event.enable(false);
 
-            this.toastCtrl.create({
-              message: "No more products!",
-              duration: 2000
-            }).present();
+            // this.toastCtrl.create({
+            //   message: "No more products!",
+            //   duration: 2000
+            // }).present();
           }
         }, (err) => {
           console.log(err)

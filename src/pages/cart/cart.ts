@@ -46,9 +46,12 @@ export class CartPage {
   }
 
   ionViewDidEnter() {
-    this.navBar.backButtonClick = () => {
-      this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
-    };
+
+    // forcing back nagigation to product page with data on url
+
+    // this.navBar.backButtonClick = () => {
+    //   this.navCtrl.push(ProductDetailsPage, {"product": this.product1});
+    // };
 
   }
 

@@ -21,13 +21,12 @@ export class ProductDetailsPage {
 
   }
 
-  ionViewDidEnter(){
-    // this.navBar.backButtonClick = () => {
-    //   this.navCtrl.push(HomePage);
-    // };
+  ionViewWillEnter(){
+    console.log("ionViewWillEnter called");
+    this.checkProductInCart(this.product);
   }
 
-  addToCart(product) {
+  addToCart(product){
     this.checkProductInCart(this.product);
 
     this.storage.get("cart").then((data) => {
@@ -80,19 +79,22 @@ export class ProductDetailsPage {
   }
 
   checkProductInCart(product){
+      console.log("checking product");
       this.storage2.get("cart").then((data2) => {
 
         if (data2 == null || data2.length == 0) {
+          console.log("No product in cart "+ this.productInCart);
            this.productInCart = false;
            this.AddToCart = " Add to Cart ";
-           console.log(this.productInCart);
-        } else {
+           console.log("No product in cart "+ this.productInCart);
+        }
+        else {
 
           for (let i = 0; i < data2.length; i++) {
             if (product.id == data2[i].product.id){
                this.productInCart = true;
                this.AddToCart = "Already added! Add one more";
-               console.log(this.productInCart);
+               console.log("Product in cart "+ this.productInCart);
             }
           }
         }
@@ -106,7 +108,9 @@ export class ProductDetailsPage {
         // first we find the index of the current view controller:
         const index = this.viewCtrl.index;
         // then we remove it from the navigation stack
-        this.navCtrl.remove(index);
+
+        // this.navCtrl.remove(index);  //  <----- ********** Removes current page from stach of pages. **********
+
       });;
 
   }
