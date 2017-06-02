@@ -90,12 +90,18 @@ export class ProductDetailsPage {
            console.log("No product in cart "+ this.productInCart);
         }
         else {
-
+          console.log("On else block");
           for (let i = 0; i < data2.length; i++) {
             if (product.id == data2[i].product.id){
                this.productInCart = true;
                this.AddToCart = "Already added! Add one more";
                console.log("Product in cart "+ this.productInCart);
+            }
+            else{
+                console.log("This product is not in cart "+ this.productInCart);
+                this.productInCart = false;
+                this.AddToCart = " Add to Cart ";
+                console.log("This product is not in cart "+ this.productInCart);
             }
           }
         }

@@ -18,55 +18,54 @@
 <page-header></page-header>
 <ion-content>
 
-  <ion-card>
+  <ion-card [hidden]="!showEmptyCartMessage">
     <ion-grid>
-      <ion-row>
-        <ion-col>Your Cart Description</ion-col>
-      </ion-row>
-      <ion-row [hidden]="!showEmptyCartMessage">
-        <ion-col>There are no products in your cart!</ion-col>
+      <ion-row  >
+        <ion-col text-center>There are no products in your cart!</ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>
 
-
-  <ion-list>
-    <ion-item *ngFor="let item of cartItems; let i = index" (click)="productDetails(item.product)">
-
-      <ion-thumbnail item-left>
-        <img [src]="item.product.featured_src" style="width: 60px !important; height: 60px !important;"/>
-      </ion-thumbnail>
-      <h2>{{ item.product.title }}</h2>
-      <p>{{ item.qty }} • {{ item.product.price }}</p>
-      <button ion-button clear item-right color="danger" (click)="removeFromCart(item, i)">
-        <ion-icon name="close-circle"></ion-icon>
-      </button>
-
-    </ion-item>
-  </ion-list>
-
-
   <ion-grid>
-    <ion-card>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-2>
+    <ion-row>
+      <ion-col col-sm-12 col-md-8 style="margin:auto;">
+        <ion-card>
 
-          </ion-col>
-          <ion-col col-4>
-            <b>TOTAL</b>
-          </ion-col>
-          <ion-col col-3>
+          <ion-list>
+            <ion-item *ngFor="let item of cartItems; let i = index" (click)="productDetails(item.product)">
 
-          </ion-col>
-          <ion-col col-3 style="text-align: right">
-            <b> {{ total }} </b>
-          </ion-col>
+              <ion-thumbnail item-left>
+                <img [src]="item.product.featured_src" style="width: 60px !important; height: 60px !important;"/>
+              </ion-thumbnail>
+              <h2>{{ item.product.title }}</h2>
+              <p>{{ item.qty }} • {{ item.product.price }}</p>
+              <button ion-button clear item-right color="danger" (click)="removeFromCart(item, i)">
+                <ion-icon name="close-circle"></ion-icon>
+              </button>
 
+            </ion-item>
+          </ion-list>
 
-        </ion-row>
-      </ion-grid>
-    </ion-card>
+          <ion-grid  [hidden]="showEmptyCartMessage">
+                <ion-row>
+                  <ion-col col-2>
+
+                  </ion-col>
+                  <ion-col col-4>
+                    <b>TOTAL</b>
+                  </ion-col>
+                  <ion-col col-3>
+
+                  </ion-col>
+                  <ion-col col-3 style="text-align: right">
+                    <b>Rs. {{ total }} </b>
+                  </ion-col>
+                </ion-row>
+          </ion-grid>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
 </ion-content>
@@ -75,10 +74,7 @@
   <ion-toolbar>
     <ion-grid>
       <ion-row>
-        <!-- <ion-col>
-          <button ion-button color="danger" outline block (click)="closeModal()">Back</button>
-        </ion-col> -->
-        <ion-col>
+        <ion-col col-sm-12 col-md-5 style="margin: auto">
           <button ion-button color="danger" block (click)="checkoutPage()">Checkout</button>
         </ion-col>
       </ion-row>

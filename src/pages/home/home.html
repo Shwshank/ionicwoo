@@ -17,17 +17,28 @@
       {{n}}
     </li>
   </ul> -->
+<ion-grid style="margin:0px; padding:0px; background: linear-gradient(#1EBBB4, #E0C1E1); ">
+  <ion-row style="margin:0px; padding:0px;">
+    <ion-col  col-sm-12 col-md-8  style="margin-left:auto; margin-right:auto; margin-top:0px; margin-bottom:0px; padding:0px;">
 
-  <ion-card style="padding-top: 0px; margin: 0px; width: 100%;" >
-    <ion-slides autoplay="3000" pager loop="true">
-      <ion-slide *ngFor="let number of [1,2,3,4]">
-        <img src="./assets/images/{{number}}.jpg" />
-      </ion-slide>
-    </ion-slides>
-  </ion-card>
+      <ion-card style="padding-top: 0px; margin: 0px; width: 100%; " >
+        <ion-slides autoplay="3000" pager loop="true">
+          <ion-slide *ngFor="let number of [1,2,3,4]">
+            <img src="./assets/images/{{number}}.jpg" />
+          </ion-slide>
+        </ion-slides>
+      </ion-card>
 
-  <ion-grid>
-      <img src="./assets/images/banner.jpg" >
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+  <ion-grid style="background: linear-gradient( #E0C1E1, #1EBBB4); ">
+    <ion-row>
+      <ion-col col-sm-12 col-md-5 style="margin:auto; ">
+        <img src="./assets/images/banner.jpg">
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
   <!-- <div animates #animation="animates" text-center>
@@ -41,35 +52,44 @@
     yoo!!!!
   </p> -->
 
-  <ion-grid >
+  <ion-grid style="background: linear-gradient(#1EBBB4, white);">
     <ion-row>
-      <ion-col   *ngFor = "let category of categories"  text-wrap col-6 (click)="openCategoryPage(category)" style="height: fixed">
+      <ion-col col-sm-3  *ngFor = "let category of categories"  text-wrap col-6 (click)="openCategoryPage(category)" style="height: fixed">
         <img  [src]="category.image" [@triggerApp]="triggerAnimation" />
       </ion-col>
 
     </ion-row>
   </ion-grid>
 
-  <ion-searchbar [(ngModel)]="queryString" id="search" placeholder="Search by product name"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="queryString" id="search" placeholder="Search by product name" animated="true" autocomplete="on"></ion-searchbar>
 
-  <ion-list >
-    <ion-item *ngFor="let product of products | SearchPipe: queryString" text-wrap (click)="productDetails(product)" >
-      <ion-thumbnail item-left>
-        <img [src]="product.featured_src"  />
-      </ion-thumbnail>
+  <!-- Animated -->
+  <!-- <input [(ngModel)]="queryString" id="search" type="search" placeholder="Search by product name" animated="true" autocomplete="on"> -->
+  <ion-row>
+    <ion-col col-sm-12 col-md-7 style="margin: auto">
 
-      <h2> {{ product.title }} </h2>
 
-      <p>
-        <!-- <span [innerHTML]="product.short_description.substr(0, 50) + '...'"></span> -->
-        <span [innerHTML]="product.price_html"></span>
-      </p>
+    <ion-list >
+      <ion-item *ngFor="let product of products | SearchPipe: queryString" text-wrap (click)="productDetails(product)"  style="float:left">
 
-      <button ion-button icon clear item-right>
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>
-    </ion-item>
-  </ion-list>
+        <ion-thumbnail item-left>
+          <img [src]="product.featured_src"  />
+        </ion-thumbnail>
+
+        <h2> {{ product.title }} </h2>
+        <p>
+          <!-- <span [innerHTML]="product.short_description.substr(0, 50) + '...'"></span> -->
+          <span [innerHTML]="product.price_html"></span>
+        </p>
+
+        <button ion-button icon clear item-right>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+
+      </ion-item>
+    </ion-list>
+    </ion-col>
+  </ion-row>
 
   <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
