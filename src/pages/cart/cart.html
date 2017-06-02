@@ -28,14 +28,14 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-sm-12 col-md-8 style="margin:auto;">
+      <ion-col col-sm-12 col-md-8 class="col-content-mid">
         <ion-card>
 
           <ion-list>
             <ion-item *ngFor="let item of cartItems; let i = index" (click)="productDetails(item.product)">
 
               <ion-thumbnail item-left>
-                <img [src]="item.product.featured_src" style="width: 60px !important; height: 60px !important;"/>
+                <img [src]="item.product.featured_src" class="width-60-height-60"/>
               </ion-thumbnail>
               <h2>{{ item.product.title }}</h2>
               <p>{{ item.qty }} • {{ item.product.price }}</p>
@@ -57,7 +57,7 @@
                   <ion-col col-3>
 
                   </ion-col>
-                  <ion-col col-3 style="text-align: right">
+                  <ion-col col-3 text-align:right>
                     <b>Rs. {{ total }} </b>
                   </ion-col>
                 </ion-row>
@@ -74,7 +74,7 @@
   <ion-toolbar>
     <ion-grid>
       <ion-row>
-        <ion-col col-sm-12 col-md-5 style="margin: auto">
+        <ion-col col-sm-12 col-md-5 class="col-content-mid">
           <button ion-button color="danger" block (click)="checkoutPage()">Checkout</button>
         </ion-col>
       </ion-row>

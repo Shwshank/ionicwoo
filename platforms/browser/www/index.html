@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <script data-ionic="inject">
-    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.3.0';i.angular='4.1.2';i.staticDir='build/';})(window);
-  </script>
+
   <meta charset="UTF-8">
   <title>Ionic App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
-
+  <script data-ionic="inject">
+    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.3.0';i.angular='4.1.2';i.staticDir='build/';})(window);
+  </script>
   <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4e8ef7">
@@ -32,6 +32,8 @@
 </head>
 <body>
 
+    <div class="loader"></div>
+
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
 
@@ -42,4 +44,29 @@
   <script src="build/main.js"></script>
 
 </body>
+
+<script>
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+             .register('./service-worker.js')
+             .then(function() { console.log('Service Worker Registered'); });
+}
+
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDPEjJQn_CxZZeCdJvwsxxrixcax13vNS8",
+    authDomain: "wooionic3.firebaseapp.com",
+    databaseURL: "https://wooionic3.firebaseio.com",
+    projectId: "wooionic3",
+    storageBucket: "wooionic3.appspot.com",
+    messagingSenderId: "279676732591"
+  };
+  firebase.initializeApp(config);
+</script>
+
 </html>

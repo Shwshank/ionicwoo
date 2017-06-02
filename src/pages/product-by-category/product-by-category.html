@@ -14,9 +14,9 @@
 
 <ion-content>
 
-  <ion-grid style=" background: linear-gradient(#1EBBB4, #E0C1E1, #1EBBB4, white);">
+  <ion-grid class="green-pink-green-white">
     <ion-row>
-      <ion-col  col-sm-12 col-md-5 style="margin:auto; ">
+      <ion-col  col-sm-12 col-md-5 class="col-content-mid">
         <ion-card >
           <img [src]="category.image" />
         </ion-card>
@@ -26,7 +26,7 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col  col-sm-12 col-md-7 style="margin: auto">
+      <ion-col  col-sm-12 col-md-7 class="col-content-mid">
         <ion-item *ngFor="let product of products"  text-wrap  (click)="productDetails(product)">
           <ion-thumbnail item-left>
             <img [src]="product.featured_src" />

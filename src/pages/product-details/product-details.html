@@ -15,19 +15,19 @@
   </ion-fab> -->
 
   <div *ngIf="productInCart">
-    <ion-fab   right middle (click)="showAddedMsg(product)" style="position: fixed">
+    <ion-fab   right middle (click)="showAddedMsg(product)"  class="position-fixed">
       <button ion-fab color="secondary"><ion-icon name="heart"></ion-icon></button>
     </ion-fab>
   </div>
 
-<ion-grid style=" background: linear-gradient(#1EBBB4, #E0C1E1, #1EBBB4, white);">
+<ion-grid class="green-pink-green-white">
   <ion-row>
-    <ion-col col-sm-12 col-md-7 style="margin:auto">
+    <ion-col col-sm-12 col-md-7 class="col-content-mid">
 
       <ion-card>
         <ion-slides autoplay="3000" pager  loop="true">
           <ion-slide *ngFor="let image of product.images"  >
-            <img [src]="image.src" style="margin: auto;"/>
+            <img [src]="image.src" class="col-content-mid"/>
           </ion-slide>
         </ion-slides>
       </ion-card>
@@ -38,12 +38,12 @@
 
 <ion-grid>
   <ion-row>
-    <ion-col  col-sm-12 col-md-8 style="margin:auto">
+    <ion-col  col-sm-12 col-md-8 class="col-content-mid">
       <ion-card>
         <ion-card-content>
           <ion-card-title>
             {{ product.title }} &nbsp;
-            <ion-chip *ngFor="let cat of product.categories" style="margin-left: 5px;">
+            <ion-chip *ngFor="let cat of product.categories" class="margin-l-5">
               <ion-label color="danger"> {{ cat }} </ion-label>
             </ion-chip>
           </ion-card-title>
@@ -51,7 +51,7 @@
           <p [innerHTML]="product.description"></p>
 
           <ion-row>
-            <ion-col col-sm-12 col-md-5 style="margin: auto">
+            <ion-col col-sm-12 col-md-5 class="col-content-mid">
               <button ion-button icon-left block outline color="danger" (click)=addToCart(product) >
                 <ion-icon name="basket"></ion-icon> {{AddToCart}}
               </button>

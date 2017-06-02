@@ -1,3 +1,29 @@
+/* Preloader starts */
+.loader {
+	margin : auto;
+	margin-top : 15%;
+  border: 6px solid #5CBDC3;
+  border-radius: 50%;
+  border-top: 16px solid #C5C0DB;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Preloader ends */
+
+
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -27455,7 +27481,51 @@ ion-navbar.toolbar {
   }
 }
 
-#custom-overlay {
+.col-content-mid {
+  margin: auto !important;
+}
+
+.margin-0-padding-0 {
+  margin: 0;
+  padding: 0;
+}
+
+.margin-0-padding-top-0-width-100 {
+  padding-top: 0px;
+  margin: 0px;
+  width: 100%;
+}
+
+.green-pink {
+  background: linear-gradient(#1EBBB4, #E0C1E1);
+}
+
+.pink-green {
+  background: linear-gradient(#E0C1E1, #1EBBB4);
+}
+
+.green-white {
+  background: linear-gradient(#1EBBB4, white);
+}
+
+.green-pink-green-white {
+  background: linear-gradient(#1EBBB4, #E0C1E1, #1EBBB4, white);
+}
+
+.width-60-height-60 {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.margin-l-5 {
+  margin-left: 5px;
+}
+
+page-home #custom-overlay {
   position: fixed;
   top: 0;
   right: 0;
@@ -27466,7 +27536,7 @@ ion-navbar.toolbar {
   background-color: #002a3e;
 }
 
-.flb {
+page-home .flb {
   background-color: #ff5335;
   height: 100%;
   width: 100%;
@@ -27483,23 +27553,23 @@ ion-navbar.toolbar {
   justify-content: center;
 }
 
-.Aligner-item {
+page-home .Aligner-item {
   max-width: 50%;
 }
 
-.Aligner-item--top {
+page-home .Aligner-item--top {
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
 }
 
-.Aligner-item--bottom {
+page-home .Aligner-item--bottom {
   -webkit-align-self: flex-end;
   -ms-flex-item-align: end;
   align-self: flex-end;
 }
 
-#custom-overlay img {
+page-home #custom-overlay img {
   display: block;
   margin: 0 auto;
   width: 50%;
